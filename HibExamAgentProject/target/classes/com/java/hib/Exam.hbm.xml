@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 14-Sep-2023, 3:38:07 pm by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+	<class name="com.java.hib.Agent" table="AGENT"> 
+		<id name="agentId" type="int">  <!-- Frontend part form Employ class private int empno -->
+			<column name="AGENTID" />
+			<generator class="increment" />  <!-- for auto increment of empno -->
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="NAME" />
+		</property>
+		<property name="gender" type="java.lang.String">
+			<column name="GENDER" />
+		</property>
+		<property name="maritalStatus" type="java.lang.String">
+			<column name="MARITALSTATUS" />
+		</property>
+		<property name="premium" type="double">
+			<column name="PREMIUM" />
+		</property>
+	</class>
+</hibernate-mapping>
