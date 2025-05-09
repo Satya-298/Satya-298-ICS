@@ -30,7 +30,7 @@ public class AgentDaoImpl implements AgentDao{
 				agent.setName(rs.getString("name"));
 				agent.setCity(rs.getString("city"));
 				agent.setGender(Gender.valueOf(rs.getString("gender")));
-				agent.setMaritalstatus(rs.getString("Maritalstatus"));
+				agent.setMaritalstatus(rs.getInt("Maritalstatus"));
 				agent.setPremium(rs.getDouble("premium"));
 				agentList.add(agent);
 			}
@@ -51,7 +51,7 @@ public class AgentDaoImpl implements AgentDao{
 			agent.setName(rs.getString("name"));
 			agent.setCity(rs.getString("city"));
 			agent.setGender(Gender.valueOf(rs.getString("gender")));
-			agent.setMaritalstatus(rs.getString("maritalstatus"));
+			agent.setMaritalstatus(rs.getInt("maritalstatus"));
 			agent.setPremium(rs.getDouble("premium"));
 		}
 		return agent;
@@ -65,7 +65,7 @@ public class AgentDaoImpl implements AgentDao{
 		psmt.setString(2, agent.getName());
 		psmt.setString(4, agent.getCity());
 		psmt.setString(3, agent.getGender().toString());
-		psmt.setString(5, agent.getMaritalstatus());
+		psmt.setInt(5, agent.getMaritalstatus());
 		psmt.setDouble(6, agent.getPremium());
 		psmt.executeUpdate();
 		return "agent Record Inserted...";
@@ -98,7 +98,7 @@ public class AgentDaoImpl implements AgentDao{
 		psmt.setString(1, agentUpdated.getName());
 		psmt.setString(3, agentUpdated.getCity());
 		psmt.setString(2, agentUpdated.getGender().toString());
-		psmt.setString(4, agentUpdated.getMaritalstatus());
+		psmt.setInt(4, agentUpdated.getMaritalstatus());
 		psmt.setDouble(5, agentUpdated.getPremium());
 		psmt.setInt(6, agentUpdated.getAgentId());
 		psmt.executeUpdate();

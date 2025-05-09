@@ -17,7 +17,7 @@ public class Agent {
 	private String name;
 	private String city;
 	private Gender gender;
-	private String maritalstatus;
+	private int maritalstatus;
 	private double premium;
 }
 
