@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.java.jsf.model">
+    <class name="Users" table="users">
+        <id name="id" column="id">
+            <generator class="identity"/>
+        </id>
+
+        <property name="name" column="name"/>
+        <property name="email" column="email"/>
+        <property name="password" column="password"/>
+        <property name="created_at" column="created_at"/>
+
+        <set name="groupMembers" cascade="all" inverse="true">
+            <key column="user_id"/>
+            <one-to-many class="com.java.jsf.model.GroupMembers"/>
+        </set>
+
+        <set name="expensesPaid" cascade="all" inverse="true">
+            <key column="paid_by_user_id"/>
+            <one-to-many class="com.java.jsf.model.Expenses"/>
+        </set>
+
+        <set name="splits" cascade="all" inverse="true">
+            <key column="user_id"/>
+            <one-to-many class="com.java.jsf.model.Splits"/>
+        </set>
+    </class>
+
+	<!-- Named Queries -->
+  <query name="showUsers">
+    from Users
+  </query>
+
+  <query name="deleteId">
+    delete from Users where id = :id
+  </query>
+
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.java.jsf.model">
+
+    <class name="Groups" table="group_s">
+        <id name="id" column="id">
+            <generator class="identity"/>
+        </id>
+
+        <property name="name" column="name"/>
+        
+        <many-to-one name="admin" column="adminId" class="com.java.jsf.model.Users" not-null="false"/>
+
+        <property name="created_at" column="created_at"/>
+        <property name="advance" column="advance"/>
+
+        <set name="groupMembers" cascade="all" inverse="true" lazy="true">
+            <key column="group_id"/>
+            <one-to-many class="com.java.jsf.model.GroupMembers"/>
+        </set>
+
+        <set name="expenses" cascade="all" inverse="true" lazy="true">
+            <key column="group_id"/>
+            <one-to-many class="com.java.jsf.model.Expenses"/>
+        </set>
+    </class>
+
+    <query name="showGroups">
+        from Groups
+    </query>
+
+    <query name="deleteById">
+        delete from Groups where id = :id
+    </query>
+
+</hibernate-mapping>
