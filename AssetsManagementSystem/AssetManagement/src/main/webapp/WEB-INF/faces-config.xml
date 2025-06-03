@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee" 
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee /WEB-INF/schema/web-facesconfig_2_0.xsd" 
+              version="2.0" metadata-complete="false">
+    <!-- This file must be present with our jar, even if it is empty.  Otherwise, our Java annotations won't get scanned! -->
+<managed-bean>
+    <managed-bean-name>adminDao</managed-bean-name>
+    <managed-bean-class>com.java.jsf.dao.AdminDaoImpl</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+</managed-bean>
+
+<managed-bean>
+    <managed-bean-name>admin</managed-bean-name>
+    <managed-bean-class>com.java.jsf.model.Admin</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+</managed-bean>
+
+<managed-bean>
+    <managed-bean-name>adminController</managed-bean-name>
+    <managed-bean-class>com.java.jsf.controller.AdminController</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+    
+    <managed-property>
+        <property-name>adminDao</property-name>
+        <property-class>com.java.jsf.dao.AdminDaoImpl</property-class>
+        <value>#{adminDao}</value>
+    </managed-property>
+    
+    <managed-property>
+        <property-name>admin</property-name>
+        <property-class>com.java.jsf.model.Admin</property-class>
+        <value>#{admin}</value>
+    </managed-property>
+</managed-bean>
+
+
+
+
+
+<managed-bean>
+    <managed-bean-name>employeeDao</managed-bean-name>
+    <managed-bean-class>com.java.jsf.dao.EmployeeDaoImpl</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+</managed-bean>
+
+<managed-bean>
+    <managed-bean-name>employee</managed-bean-name>
+    <managed-bean-class>com.java.jsf.model.Employee</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+</managed-bean>
+
+<managed-bean>
+    <managed-bean-name>employeeController</managed-bean-name>
+    <managed-bean-class>com.java.jsf.controller.EmployeeController</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+    
+    <managed-property>
+        <property-name>employeeDao</property-name>
+        <property-class>com.java.jsf.dao.EmployeeDaoImpl</property-class>
+        <value>#{employeeDao}</value>
+    </managed-property>
+    
+    <managed-property>
+        <property-name>employee</property-name>
+        <property-class>com.java.jsf.model.Employee</property-class>
+        <value>#{employee}</value>
+    </managed-property>
+</managed-bean>
+</faces-config>
